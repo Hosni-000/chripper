@@ -1,10 +1,5 @@
 <?php
-
+use App\Http\Controllers\ChripController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-Route::get('/about', function () {
-    return view('about-us');
-})->name('about');
+Route::get('/', [ChripController::class, 'index'])->name('home');
