@@ -1,7 +1,4 @@
 <x-layout>
-    @if ($errors->any())
-    {{ dd($errors -> all()) }}
-    @endif
     <x-slot:title>
         Home Feed
     </x-slot:title>
@@ -16,7 +13,7 @@
                     @csrf
                     <div class="form-control" w-full>
                         <textarea name="message" placeholder="What's on your mind?"
-                        class="textarea textarea-bordered w-full @error('message') textarea-error @enderror">{{ old('message') }}</textarea>
+                        class="textarea textarea-bordered w-full @error('message') textarea-error @enderror" maxlength="255">{{ old('message') }}</textarea>
                         @error('message')
                             <span class="text-error text-sm mt-1">{{ $message }}</span>
                         @enderror
