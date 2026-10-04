@@ -14,16 +14,12 @@
             <div class="card-body">
                 <form method="POST" action="/chirps">
                     @csrf
-                    <div class="form-control w-full">
-                        <textarea
-                            name="message"
-                            placeholder="What's on your mind?"
-                            class="textarea textarea-bordered w-full resize-none"
-                            rows="4"
-                            maxlength="255"
-                            required
-                        ></textarea>
-                    </div>
+                    <div class="form-control" w-full>
+                        <textarea name="message" placeholder="What's on your mind?"
+                        class="textarea textarea-bordered w-full @error('message') textarea-error @enderror">{{ old('message') }}</textarea>
+                        @error('message')
+                            <span class="text-error text-sm mt-1">{{ $message }}</span>
+                        @enderror
 
                     <div class="mt-4 flex items-center justify-end">
                         <button type="submit" class="btn btn-primary btn-sm">
