@@ -1,4 +1,7 @@
 <x-layout>
+    @if ($errors->any())
+    {{ dd($errors -> all()) }}
+    @endif
     <x-slot:title>
         Home Feed
     </x-slot:title>
